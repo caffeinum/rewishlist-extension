@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Luckiest Guy';
+  font-style: normal;
+  font-weight: 400;
+  src: url('chrome-extension://__MSG_@@extension_id__/LuckiestGuy-Regular.ttf')
+    format('truetype');
+}

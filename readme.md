@@ -12,7 +12,7 @@
 
 > Barebones boilerplate with webpack, options handler and auto-publishing.
 
-![Sample extension output](media/previewer.png)
+![Sample extension output](media/screenshot.png)
 
 ## Features
 
@@ -201,4 +201,3 @@ Extension icon made by [Freepik](https://www.freepik.com) from [www.flaticon.com
 ## License
 
 [![CC0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
-
