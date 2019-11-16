@@ -1,8 +1,9 @@
 {
-	"name": "Rewishlist – Save on items people wish to refund",
-	"version": "0.1.0",
-	"description": "Save up to 40% on your wishlist! Shop refunded items directly from the buyer",
-	"homepage_url": "https://rewishlist.store/install",
+	"name": "Rewishlist for Farfetch – Save up to 40%",
+	"short_name": "Rewishlist for Farfetch",
+	"version": "0.1.2",
+	"description": "Save money on refunded items from Farfetch, ASOS, TSUM, shop directly from the buyer",
+	"homepage_url": "https://rewishlist.github.io/",
 	"manifest_version": 2,
 	"minimum_chrome_version": "74",
 	"icons": {
@@ -19,7 +20,10 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["<all_urls>"],
+			"matches": [
+				"https://*.farfetch.com/*",
+				"http://*.farfetch.com/*"
+			],
 			"css": ["style.css", "fonts.chrome.css"],
 			"js": ["content.js"],
 			"run_at": "document_start"

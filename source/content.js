@@ -1,6 +1,8 @@
 import browser from 'webextension-polyfill'
 import { requestPermission, notify } from './notification'
 
+const ROOT_URL = `https://rewishlist.github.io`
+
 const getRandom = arr => {
   const index = Math.floor(Math.random() * arr.length)
   return arr[index]
@@ -31,7 +33,7 @@ const notifyFoundProduct = async (product = {}, owner = {}) => {
     title: `${owner.name} wants to refund ${product.name}`,
     body: `Get it for ${(Math.floor(product.price * 0.8))}€ at ${owner.location}`,
     icon: browser.runtime.getURL('icon.png'),
-    url: `https://caffeinum.com`,
+    url: `${ROOT_URL}/?product_json=${JSON.stringify(product)}`,
   })
 
   console.log('result', result)
@@ -47,10 +49,11 @@ const submitClick = async (event) => {
 If someone near you decides to refund this item,
 we can give it to you with up to 40% discount.
 Subscribe to notifications to receive ${product.name} when available.
+
+More info at <a href="https://rewishlist.github.io/about">https://rewishlist.github.io/about</a>
     `
   )
 
-  //
   // We will notify you when someone would like to refund
   // ${product.name}
 
@@ -60,12 +63,12 @@ Subscribe to notifications to receive ${product.name} when available.
   console.log('permission', permission)
 
   if (permission == 'granted') {
-    await notify({
-      title: `Subscribed!`,
-      body: `We'll notify you when ${product.name} will be available!`,
-      icon: browser.runtime.getURL('icon.png'),
-      url: ``,
-    })
+    // await notify({
+    //   title: `Subscribed!`,
+    //   body: `We'll notify you when ${product.name} will be available!`,
+    //   icon: browser.runtime.getURL('icon.png'),
+    //   url: ``,
+    // })
 
     closePopup()
   } else {
@@ -74,7 +77,6 @@ Subscribe to notifications to receive ${product.name} when available.
 
   // notify in 5 seconds
   setTimeout(() => {
-
     const owner = {
       name: getRandom(['Jamie', 'George', 'James']),
       location: 'Espoo, Finland (1km)',
@@ -82,6 +84,8 @@ Subscribe to notifications to receive ${product.name} when available.
 
     notifyFoundProduct(product, owner)
   }, 8000)
+
+  // window.open(`${ROOT_URL}/?product_json=${JSON.stringify(product)}`)
 }
 
 const insertButton = () => {
