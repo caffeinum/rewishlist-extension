@@ -12,18 +12,21 @@ const extractProduct = () => {
   const price_elem = document.querySelector('[data-tstid="priceInfo-original"]')
   const brand_elem = document.querySelector('[data-tstid="cardInfo-title"]')
   const title_elem = document.querySelector('[data-tstid="cardInfo-description"]')
+  const image_elem = document.querySelector('[data-tstid="slick-active"]')
 
   const price = parseInt(price_elem.textContent.replace(/[^0-9]/ig, ''))
   // TODO: we lose currency information sorry
   const brand = brand_elem.textContent
   const title = title_elem.textContent
-  const url = window.location
+  const url = window.location.href
+  const image_url = image_elem && image_elem.src
 
   return {
     price,
     brand,
     title,
     url,
+    image_url,
     name: `${brand} ${title}`
   }
 }
