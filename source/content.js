@@ -32,14 +32,12 @@ const extractProduct = () => {
 }
 
 const notifyFoundProduct = async (product = {}, owner = {}) => {
-  const result = await notify({
+  await notify({
     title: `${owner.name} wants to refund ${product.name}`,
     body: `Get it for ${(Math.floor(product.price * 0.8))}€ at ${owner.location}`,
     icon: browser.runtime.getURL('icon.png'),
     url: `${ROOT_URL}/?product_json=${JSON.stringify(product)}`,
   })
-
-  console.log('result', result)
 }
 
 const submitClick = async (event) => {
@@ -47,7 +45,7 @@ const submitClick = async (event) => {
   // show modal dialog
 
   showPopup(
-    'DEAL OF THE CENTURY',
+    'You saved ' + product.name,
     `
 If someone near you decides to refund this item,
 we can give it to you with up to 40% discount.
