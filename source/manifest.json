@@ -1,7 +1,7 @@
 {
 	"name": "Rewishlist for Farfetch – Save up to 40%",
 	"short_name": "Rewishlist for Farfetch",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "Save money on refunded items from Farfetch, ASOS, TSUM, shop directly from the buyer",
 	"homepage_url": "https://rewishlist.github.io/",
 	"manifest_version": 2,

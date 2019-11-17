@@ -73,7 +73,7 @@ More info at <a href="https://rewishlist.github.io/about">https://rewishlist.git
     //   url: ``,
     // })
 
-    closePopup()
+    // closePopup()
   } else {
     return
   }
